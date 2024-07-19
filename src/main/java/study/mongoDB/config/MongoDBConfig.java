@@ -12,7 +12,7 @@ import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @Configuration
-@EnableMongoRepositories(basePackages = "study.mongoDB.repository")
+@EnableMongoRepositories(basePackages = "study.mongoDB.nosql")
 @EnableMongoAuditing
 public class MongoDBConfig {
     @Bean

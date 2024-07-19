@@ -2,8 +2,8 @@ package study.mongoDB.order.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import org.springframework.data.annotation.Id;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
