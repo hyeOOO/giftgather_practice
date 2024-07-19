@@ -12,11 +12,16 @@ import study.mongoDB.service.ProjectOverallService;
 
 import java.util.List;
 
-@RequiredArgsConstructor
+
 @RestController
 public class ProjectController {
     private final ProjectService projectService;
     private final ProjectOverallService projectOverallService;
+
+    public ProjectController(ProjectService projectService, ProjectOverallService projectOverallService) {
+        this.projectService = projectService;
+        this.projectOverallService = projectOverallService;
+    }
 
     @GetMapping("/list")
     public ResponseEntity<List<ProjectDto>> getListOfProject(){
