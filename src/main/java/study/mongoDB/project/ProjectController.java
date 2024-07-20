@@ -6,14 +6,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import study.mongoDB.project.entity.Category;
-import study.mongoDB.project.entity.Project;
-import study.mongoDB.project.entity.ProjectReward;
-import study.mongoDB.project.entity.ProjectWish;
-import study.mongoDB.project.service.CategoryService;
-import study.mongoDB.project.service.ProjectRewardService;
-import study.mongoDB.project.service.ProjectService;
-import study.mongoDB.project.service.ProjectWishService;
+import study.mongoDB.project.entity.*;
+import study.mongoDB.project.service.*;
 
 import java.util.List;
 
@@ -28,6 +22,10 @@ public class ProjectController {
     private final ProjectRewardService projectRewardService;
 
     private final ProjectWishService projectWishService;
+
+    private final ProjectDocumentService projectDocumentService;
+
+    private final ProjectReportService projectReportService;
 
     //카테고리리스트
     @GetMapping("/project/categoryList")
@@ -55,5 +53,19 @@ public class ProjectController {
     public ResponseEntity<List<ProjectWish>> getProjectWishList() {
         List<ProjectWish> projectWishList = projectWishService.getProjectWishList();
         return new ResponseEntity<>(projectWishList, HttpStatus.OK);
+    }
+
+    //프로젝트심사서류리스트
+    @GetMapping("/project/projectDocumentList")
+    public ResponseEntity<List<ProjectDocument>> getProjectDocumentList() {
+        List<ProjectDocument> projectDocumentList = projectDocumentService.getProjectDocumentList();
+        return new ResponseEntity<>(projectDocumentList, HttpStatus.OK);
+    }
+
+    //프로젝트신고리스트
+    @GetMapping("/project/projectReportList")
+    public ResponseEntity<List<ProjectReport>> getProjectReportList() {
+        List<ProjectReport> projectReportList = projectReportService.getProjectReportList();
+        return new ResponseEntity<>(projectReportList, HttpStatus.OK);
     }
 }
